@@ -110,25 +110,8 @@ public static void main(String[] args)
 			{
 				
 				String fileContents = loadData(cons.StList);
-				char Characters[] = fileContents.toCharArray();			
-				boolean in_word = false;
-				int count=0;
-				for(char Cha : Characters) 
-				{
-					if(Cha ==' ') 
-					{
-						if(!in_word) 
-						{	
-							count++; 
-							in_word =true;	
-						}
-					else 
-					{ 
-						in_word=false;
-					}			
-				}
-			}
-			System.out.println(count +" word(s) found " );
+				String words[] = fileContents.split(cons.StudentEntryDelimite);
+				System.out.println(words.length +" word(s) found " );
 			} 
 			catch (Exception e)
 			{
