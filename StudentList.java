@@ -6,19 +6,20 @@ public class StudentList {
 public static void main(String[] args) 
 {
 //		Check arguments
+		Constants cons = new Constants();
 		if(args.length == 0 || args.length > 1)
 		{
 			System.out.println("Program terminated.\nPlease Enter a valid argument");
 			return;
 		}
-		else if(args[0].equals("a")) 
+		else if(args[0].equals(cons.showAll)) 
 		{
-			System.out.println("Loading data ...");		
+			System.out.println(cons.dLoading);		
 			try 
 			{
 				 
-				String reader = loadData("students.txt");
-				String words[] = reader.split(",");			
+				String reader = loadData(cons.StList);
+				String words[] = reader.split(cons.StudentEntryDelimite);			
 				for(String word : words) 
 				{ 
 					System.out.println(word); 
@@ -28,17 +29,17 @@ public static void main(String[] args)
 			{
 
 			} 
-			System.out.println("Data Loaded.");
+			System.out.println(cons.dLoaded);
 		}
-		else if(args[0].equals("r")) 
+		else if(args[0].equals(cons.showRandom)) 
 		{
-			System.out.println("Loading data ...");			
+			System.out.println(cons.dLoading);			
 			try 
 			{
 				
-				String reader = loadData("students.txt"); 
+				String reader = loadData(cons.StList); 
 				System.out.println(reader);
-				String words[] = reader.split(",");	
+				String words[] = reader.split(cons.StudentEntryDelimite);	
 				Random random = new Random();
 				int randomIndex = random.nextInt();
 				System.out.println(words[randomIndex]);
@@ -47,15 +48,15 @@ public static void main(String[] args)
 			{
 
 			} 
-			System.out.println("Data Loaded.");			
+			System.out.println(cons.dLoaded);			
 		}
-		else if(args[0].contains("+"))
+		else if(args[0].contains(cons.addEntry))
 		{
-			System.out.println("Loading data ...");			
+			System.out.println(cons.dLoading);			
 			try 
 			{
 				BufferedWriter fileStream = new BufferedWriter(
-				new FileWriter("students.txt", true));
+				new FileWriter(cons.StList, true));
 				String argValue = args[0].substring(1);
 	        	Date date = new Date();
 	        	String dateForm = "dd/mm/yyyy-hh:mm:ss a";
@@ -68,16 +69,16 @@ public static void main(String[] args)
 			{
 
 			}							
-			System.out.println("Data Loaded.");	
+			System.out.println(cons.dLoaded);	
 		}
-		else if(args[0].contains("?")) 
+		else if(args[0].contains(cons.findEntry)) 
 		{
-			System.out.println("Loading data ...");			
+			System.out.println(cons.dLoading);			
 			try 
 			{
 				 
-				String reader = loadData("students.txt");
-				String words[] = reader.split(",");	
+				String reader = loadData(cons.StList);
+				String words[] = reader.split(cons.StudentEntryDelimite);	
 				boolean done = false;
 				String argValue = args[0].substring(1);
 				for(int idx = 0; idx<words.length && !done; idx++) 
@@ -93,15 +94,15 @@ public static void main(String[] args)
 			{
 
 			} 
-			System.out.println("Data Loaded.");				
+			System.out.println(cons.dLoaded);				
 		}
-		else if(args[0].contains("c")) 
+		else if(args[0].contains(cons.showCount)) 
 		{
-			System.out.println("Loading data ...");			
+			System.out.println(cons.dLoading);			
 			try 
 			{
 				
-				String fileContents = loadData("students.txt");
+				String fileContents = loadData(cons.StList);
 				char Characters[] = fileContents.toCharArray();			
 				boolean in_word = false;
 				int count=0;
@@ -126,7 +127,7 @@ public static void main(String[] args)
 			{
 
 			} 
-			System.out.println("Data Loaded.");				
+			System.out.println(cons.dLoaded);				
 		}
 	}
 
