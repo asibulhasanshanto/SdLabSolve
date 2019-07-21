@@ -16,10 +16,8 @@ public static void main(String[] args)
 			System.out.println("Loading data ...");		
 			try 
 			{
-				BufferedReader fileStream = new BufferedReader(
-				new InputStreamReader(
-				new FileInputStream("students.txt"))); 
-				String reader = fileStream.readLine(); 
+				 
+				String reader = loadData("students.txt");
 				String words[] = reader.split(",");			
 				for(String word : words) 
 				{ 
@@ -37,10 +35,8 @@ public static void main(String[] args)
 			System.out.println("Loading data ...");			
 			try 
 			{
-				BufferedReader fileStream = new BufferedReader(
-				new InputStreamReader(
-				new FileInputStream("students.txt"))); 
-				String reader = fileStream.readLine(); 
+				
+				String reader = loadData("students.txt"); 
 				System.out.println(reader);
 				String words[] = reader.split(",");	
 				Random random = new Random();
@@ -79,10 +75,8 @@ public static void main(String[] args)
 			System.out.println("Loading data ...");			
 			try 
 			{
-				BufferedReader fileStream = new BufferedReader(
-				new InputStreamReader(
-				new FileInputStream("students.txt"))); 
-				String reader = fileStream.readLine();
+				 
+				String reader = loadData("students.txt");
 				String words[] = reader.split(",");	
 				boolean done = false;
 				String argValue = args[0].substring(1);
@@ -106,10 +100,8 @@ public static void main(String[] args)
 			System.out.println("Loading data ...");			
 			try 
 			{
-				BufferedReader fileStream = new BufferedReader(
-				new InputStreamReader(
-				new FileInputStream("students.txt"))); 
-				String fileContents = fileStream.readLine();
+				
+				String fileContents = loadData("students.txt");
 				char Characters[] = fileContents.toCharArray();			
 				boolean in_word = false;
 				int count=0;
@@ -136,5 +128,25 @@ public static void main(String[] args)
 			} 
 			System.out.println("Data Loaded.");				
 		}
+	}
+
+	public static String loadData(String filename)
+	{
+		String line;
+		try
+		{
+			BufferedReader fileStream = new BufferedReader(
+			new InputStreamReader(
+			new FileInputStream(filename))); 
+
+			line = fileStream.readLine();
+			return line;
+
+		}
+		catch(Exception e)
+		{
+
+		}
+		return "";
 	}
 }
