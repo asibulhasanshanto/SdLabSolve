@@ -78,15 +78,23 @@ public static void main(String[] args)
 				 
 				String reader = loadData(cons.StList);
 				String words[] = reader.split(cons.StudentEntryDelimite);	
-				boolean done = false;
 				String argValue = args[0].substring(1);
-				for(int idx = 0; idx<words.length && !done; idx++) 
+				int index=-1;
+				for(int idx = 0; idx<words.length; idx++) 
 				{
 					if(words[idx].equals(argValue)) 
 					{
-						System.out.println("We found it!");
-						done=true;
+						index = idx ;
+						break;
 					}
+				}
+				if(index >= 0)
+				{
+					System.out.println("Entry " + argValue +" found in index " + index);
+				}
+				else
+				{
+					System.out.println("Entry " + argValue +" does not exist ");
 				}
 			} 
 			catch (Exception e)
