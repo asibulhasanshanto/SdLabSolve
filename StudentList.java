@@ -59,8 +59,7 @@ public static void main(String[] args)
 				new FileWriter(cons.StList, true));
 				String argValue = args[0].substring(1);
 	        	Date date = new Date();
-	        	String dateForm = "dd/mm/yyyy-hh:mm:ss a";
-	        	DateFormat dateFormat = new SimpleDateFormat(dateForm);
+	        	DateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy-hh:mm:ss a");
 	        	String finalDate = dateFormat.format(date);
 				fileStream.write(", "+argValue+"\nList last updated on "+finalDate);
 				fileStream.close();
@@ -133,15 +132,14 @@ public static void main(String[] args)
 
 	public static String loadData(String filename)
 	{
-		String line;
 		try
 		{
 			BufferedReader fileStream = new BufferedReader(
 			new InputStreamReader(
 			new FileInputStream(filename))); 
 
-			line = fileStream.readLine();
-			return line;
+			return fileStream.readLine();
+			
 
 		}
 		catch(Exception e)
