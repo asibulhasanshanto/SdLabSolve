@@ -43,9 +43,9 @@ public static void main(String[] args)
 				String reader = fileStream.readLine(); 
 				System.out.println(reader);
 				String words[] = reader.split(",");	
-				Random rand = new Random();
-				int randIndex = rand.nextInt();
-				System.out.println(words[randIndex]);
+				Random random = new Random();
+				int randomIndex = random.nextInt();
+				System.out.println(words[randomIndex]);
 			} 
 			catch (Exception e)
 			{
@@ -62,10 +62,10 @@ public static void main(String[] args)
 				new FileWriter("students.txt", true));
 				String argValue = args[0].substring(1);
 	        	Date date = new Date();
-	        	String dateF = "dd/mm/yyyy-hh:mm:ss a";
-	        	DateFormat dateFormat = new SimpleDateFormat(dateF);
-	        	String fullDate= dateFormat.format(dateF);
-				fileStream.write(", "+argValue+"\nList last updated on "+fullDate);
+	        	String dateForm = "dd/mm/yyyy-hh:mm:ss a";
+	        	DateFormat dateFormat = new SimpleDateFormat(dateForm);
+	        	String finalDate = dateFormat.format(date);
+				fileStream.write(", "+argValue+"\nList last updated on "+finalDate);
 				fileStream.close();
 			} 
 			catch (Exception e)
@@ -113,9 +113,9 @@ public static void main(String[] args)
 				char Characters[] = fileContents.toCharArray();			
 				boolean in_word = false;
 				int count=0;
-				for(char Character :Characters) 
+				for(char Cha : Characters) 
 				{
-					if(Characters.equals(' ')) 
+					if(Cha ==' ') 
 					{
 						if(!in_word) 
 						{	
